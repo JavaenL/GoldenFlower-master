@@ -34,7 +34,11 @@ public class LizhipengPlayer implements Player {
         if (isStraight(pokers))
             return (int)(Math.pow(1.99,round+1)*100);
 
-        return 100;
+        for (Poker p : pokers){
+            if ( p.getPoint().getNum() >= 10)
+                return 100;
+        }
+        return 0;
     }
 
     public void onResult(int time, boolean isWin, List<Poker> pokers) {
